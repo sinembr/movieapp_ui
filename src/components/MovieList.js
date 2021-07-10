@@ -2,7 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function MovieList(movies) {
+function MovieList({movies}) {
   const movieList = <div>Movies List ready and here</div>
   const emptyMessage =<div>There is no any movies yet</div>
   return (
