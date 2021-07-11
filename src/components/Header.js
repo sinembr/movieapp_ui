@@ -30,7 +30,7 @@ export default class Header extends Component {
                   src="https://react.semantic-ui.com/logo.png"
                 />
               </Menu.Item>
-              <Menu.Item header>Movie App</Menu.Item>
+              <Menu.Item header as={Link} to="MovieApp">Movie App</Menu.Item>
               <Menu.Item as={Link} to="movies">
                 Movies
               </Menu.Item>
