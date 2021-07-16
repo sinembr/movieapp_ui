@@ -1,5 +1,5 @@
 import "./App.css";
-import {Route } from "react-router-dom";
+import {Route,Link } from "react-router-dom";
 import MoviesPage from "./components/pages/MoviesPage";
 import Footer from "./components/Footer";
 import Header from "./components/Header"
@@ -15,6 +15,7 @@ class App extends Component {
         <Container text>
           App Component
           <br />
+          <Link to='movies'>Movies</Link>
           <Route path="/movies" component={MoviesPage}></Route>
         </Container>
         <Footer />
