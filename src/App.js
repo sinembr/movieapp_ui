@@ -13,9 +13,6 @@ class App extends Component {
       <div>
         <Header/>
         <Container text>
-          App Component
-          <br />
-          <Link to='movies'>Movies</Link>
           <Route path="/movies" component={MoviesPage}></Route>
         </Container>
         <Footer />

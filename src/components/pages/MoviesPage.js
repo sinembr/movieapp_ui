@@ -4,17 +4,25 @@ import { connect } from 'react-redux'
 import moviesReducer from '../../reducers/moviesReducer'
 import PropTypes from 'prop-types'
 import MovieList from '../MovieList'
+import { fetchMovies } from '../../actions/movieActions'
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 export class MoviesPage extends Component {
-  static propTypes = {movies:PropTypes.array.isRequired}
+  static propTypes = {moviesReducer:PropTypes.object.isRequired}
+  //cdm snippet
+  componentDidMount() {
+    this.props.fetchMovies()
+  }
+  
   render() {
     console.log(this.props)
+    const errMessage = this.props.moviesReducer.error.message
     return (
       <div>
-        Movies Page Component
-        <br />
-        <MovieList movies={this.props.movies}/>
-        <hr/>
+        <h2>Movies List</h2>
+        <ScaleLoader loading={true} color={'#36D7B7'} height={100} width={8} radius={10} margin={4}/>
+        {errMessage ? <h3>Error in retrieving data. Details : {errMessage} </h3> : <MovieList movies={this.props.moviesReducer.movies}/>}
+        <hr />
       </div>
     )
   }
@@ -24,12 +32,8 @@ export class MoviesPage extends Component {
 //   movies:state.moviesReducer
 // })
 
-const mapStateToProps = ({moviesReducer}) => ({
-  movies:moviesReducer
-})
+const mapStateToProps = ({moviesReducer}) => ({moviesReducer})
 
-const mapDispatchToProps = {
-  
-}
+const mapDispatchToProps = {fetchMovies}
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesPage)
