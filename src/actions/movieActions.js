@@ -18,7 +18,7 @@ export function fetchMovies() {
     dispatch({
       type:FETCHED_MOVIES,
       payload:axios.get(`${API_BASE}/movies`)
-      .then(result => result.data)
+      .then((result) => result.data)
     })
   }
 }
