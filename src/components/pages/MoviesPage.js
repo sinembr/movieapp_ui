@@ -1,7 +1,7 @@
 // Created with rcredux snippet
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import moviesReducer from '../../reducers/moviesReducer'
+// import moviesReducer from '../../reducers/moviesReducer'
 import PropTypes from 'prop-types'
 import MovieList from '../MovieList'
 import { fetchMovies } from '../../actions/movieActions'
@@ -20,8 +20,8 @@ export class MoviesPage extends Component {
     return (
       <div>
         <h2>Movies List</h2>
-        <ScaleLoader loading={true} color={'#36D7B7'} height={100} width={8} radius={10} margin={4}/>
-        {errMessage ? <h3>Error in retrieving data. Details : {errMessage} </h3> : <MovieList movies={this.props.moviesReducer.movies}/>}
+        <ScaleLoader loading={true /*this.props.moviesReducer.fetching*/} color={'#36D7B7'} height={50} width={5} radius={10} margin={4}/>
+        {errMessage ? (<h3>Error in retrieving data. Details : {errMessage} </h3>) : (<MovieList movies={this.props.moviesReducer.movies}/>)}
         <hr />
       </div>
     )

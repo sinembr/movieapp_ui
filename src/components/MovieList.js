@@ -1,6 +1,6 @@
 //Created with rfcp snippet
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import MovieCard from './MovieCard'
 import { Grid } from 'semantic-ui-react'
 
@@ -15,7 +15,7 @@ function MovieList({movies}) {
     
   const movieList = (
   <Grid>
-    <Grid.Row columns={4}>
+    <Grid.Row columns={3}>
       {movies.map((movie)=>(
       <Grid.Column key={movie.id}>
         <MovieCard movie={movie} />
@@ -23,15 +23,15 @@ function MovieList({movies}) {
     </Grid.Row>
   </Grid>)
   const emptyMessage = <div>There is no any movies yet</div>
+  console.log(movies)
   return (
-    <div>
+    <h3>
       {movies.length === 0 ? emptyMessage : movieList}
-    </div>
+    </h3>
   )
 }
 
-MovieList.propTypes = {movies: PropTypes.object.isRequired
-}
+MovieList.propTypes = {};
 
 export default MovieList
 

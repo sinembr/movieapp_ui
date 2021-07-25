@@ -73,7 +73,8 @@ export class newMoviePage extends Component {
   }
 }
 const mapStateToProps = ({newMovieReducer}) => {
-  console.log('newMovieReducer=> ', newMovieReducer)
+  //console.log('newMovieReducer=> ', newMovieReducer)
+  return {newMovieReducer}
 }
 const mapDispatchToProps = {
   onNewMovieSubmit

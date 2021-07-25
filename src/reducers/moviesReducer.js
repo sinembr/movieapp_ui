@@ -1,4 +1,4 @@
-import {FETCHED_MOVIES_PENDING,FETCHED_MOVIES_FULLFILLED,FETCHED_MOVIES_REJECTED/*FETCHED_MOVIES_ERROR*/} from '../actions/movieActions'
+import {FETCHED_MOVIES_PENDING,FETCHED_MOVIES_FULFILLED,FETCHED_MOVIES_REJECTED/*FETCHED_MOVIES_ERROR*/} from '../actions/movieActions'
 
 // Create with rxreducer snippet
 const initialState = {
@@ -8,11 +8,11 @@ const initialState = {
   error:{}
 }
 
-export default (state = initialState, { type, payload }) => {
+const moviesReducer= (state = initialState, { type, payload }) => {
   switch (type) {
   case FETCHED_MOVIES_PENDING:
     return { ...state, fetching:true, fetched:false}
-    case FETCHED_MOVIES_FULLFILLED:
+    case FETCHED_MOVIES_FULFILLED:
     return { ...state, fetching:false, fetched:true,movies:payload }
     case FETCHED_MOVIES_REJECTED:
     return {...state, fetching:false, fetched:true,error:payload}
@@ -22,3 +22,4 @@ export default (state = initialState, { type, payload }) => {
     return state
   }
 }
+export default moviesReducer;

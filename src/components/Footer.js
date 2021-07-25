@@ -72,7 +72,6 @@ function Footer(props) {
             </List>
           </Container>
         </Segment>
-      
     </div>
   )
 }

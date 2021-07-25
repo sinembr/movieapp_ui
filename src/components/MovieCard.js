@@ -24,7 +24,7 @@ const processButtons = (movieId) =>{
   const MovieCard = ({movie}) => (
   <Card>
     <Image src={movie.cover} wrapped ui={false} />
-    <Card.Content>
+    <Card.Content extra>
       <Card.Header>{movie.title}</Card.Header>
       <Card.Meta>
         <span className='date'>{movie.year}</span>
@@ -34,12 +34,12 @@ const processButtons = (movieId) =>{
       </Card.Description>
     </Card.Content>
     <Card.Content extra>
-      <a>
+      <a href='#'>
         <Icon name='star' />
         {movie.imdb_score}
       </a>
     </Card.Content>
-    <Card.Content >
+    <Card.Content extra>
       {processButtons(movie.id)}
     </Card.Content>
   </Card>
